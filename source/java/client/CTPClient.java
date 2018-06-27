@@ -97,6 +97,11 @@ public class CTPClient extends JFrame implements ActionListener, ComponentListen
     String stowUsername = null;
     String stowPassword = null;
 
+	String xnatCookieName = null;
+	String xnatPassword = null;
+	String xnatURL = null;
+	String xnatUsername = null;
+
     public static void main(String[] args) {
 		Logger.getRootLogger().addAppender(
 				new ConsoleAppender(
@@ -137,6 +142,12 @@ public class CTPClient extends JFrame implements ActionListener, ComponentListen
 		stowURL = config.getProperty("stowURL", "");
 		stowUsername = config.getProperty("stowUsername", "");
 		stowPassword = config.getProperty("stowPassword", "");
+
+		//Get the XNAT configuration
+		xnatCookieName = config.getProperty("xnatCookieName", "");
+		xnatPassword = config.getProperty("xnatPassword", "");
+		xnatURL = config.getProperty("xnatURL", "");
+		xnatUsername = config.getProperty("xnatUsername", "");
 
 		//Set up the exportDirectory
 		String expDir = config.getProperty("exportDirectory");
@@ -534,6 +545,22 @@ public class CTPClient extends JFrame implements ActionListener, ComponentListen
 
 	public String getSTOWPassword() {
 		return stowPassword;
+	}
+
+	public String getXnatCookieName() {
+		return xnatCookieName;
+	}
+
+	public String getXnatPassword() {
+		return xnatPassword;
+	}
+
+	public String getXnatURL() {
+		return xnatURL;
+	}
+
+	public String getXnatUsername() {
+		return xnatUsername;
 	}
 
 	public File getExportDirectory() {
